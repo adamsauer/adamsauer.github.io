@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="麦乐迪KTV官网 - 提供全国连锁KTV订房服务、最新团购套餐、热门歌曲点播及会员权益查询。享受高品质声学环境、豪华包厢与专业服务。">
+    <meta name="keywords" content="麦乐迪ktv官网,麦乐迪KTV,麦乐迪订房,麦乐迪团购,KTV订房,连锁KTV">
+    <title>麦乐迪ktv官网-全国连锁KTV订房与娱乐服务指南</title>
+    <style>
+        :root {
+            --primary-color: #e60012; /* 品牌红 */
+            --secondary-color: #ff4d4d;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --accent-gold: #ffd700;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #cc0010;
+            border-color: #cc0010;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark-bg);
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 24px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/ktvhero/1600/900.jpg') center/cover no-repeat;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Feature Bar */
+        .features {
+            background-color: var(--card-bg);
+            padding: 40px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        /* Banner Grid */
+        .banner-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .banner-card {
+            height: 300px;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .banner-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .banner-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .banner-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .banner-tag {
+            background-color: var(--primary-color);
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 2px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .banner-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Section: Venues */
+        .venue-section {
+            margin-bottom: 60px;
+        }
+
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .venue-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .venue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--primary-color);
+        }
+
+        .venue-img {
+            height: 180px;
+            width: 100%;
+            background-color: #444;
+        }
+
+        .venue-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .venue-info {
+            padding: 20px;
+        }
+
+        .venue-name {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .venue-status {
+            font-size: 12px;
+            color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .venue-addr {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .venue-price {
+            font-size: 20px;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .venue-price span {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        /* Section: Services */
+        .services-section {
+            background-color: #222;
+            padding: 60px 0;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+        }
+
+        .service-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 15px;
+            background-color: rgba(230, 0, 18, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .service-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            .nav-menu {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .banner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color)"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                麦乐迪<span>ktv</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#venues">门店查询</a>
+                <a href="#deals">优惠套餐</a>
+                <a href="#services">会员服务</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#deals" class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;">立即订房</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>释放激情，唱响未来</h1>
+                <p>全国连锁高品质KTV，超清4K点歌系统，专业音响设备，为您打造极致的聚会体验。</p>
+                <div class="hero-buttons">
+                    <a href="#venues" class="btn btn-primary">查找附近门店</a>
+                    <a href="#deals" class="btn btn-outline">查看最新团购</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container features-grid">
+                <div class="feature-item">
+                    <h3>海量曲库</h3>
+                    <p>收录最新流行热歌，支持云端同步</p>
+                </div>
+                <div class="feature-item">
+                    <h3>豪华包厢</h3>
+                    <p>静音隔音设计，私密舒适空间</p>
+                </div>
+                <div class="feature-item">
+                    <h3>专业服务</h3>
+                    <p>24小时贴心服务，免费提供茶歇小吃</p>
+                </div>
+                <div class="feature-item">
+                    <h3>智能预订</h3>
+                    <p>支持微信/电话在线预订，极速核销</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Area -->
+        <section class="container main-content">
+            <div class="banner-grid">
+                <div class="banner-card">
+                    <img src="https://picsum.photos/seed/ktvparty/800/400.jpg" alt="麦乐迪周末狂欢派对">
+                    <div class="banner-content">
+                        <span class="banner-tag">限时特惠</span>
+                        <h2 class="banner-title">周末欢唱套餐：2小时畅唱仅需99元</h2>
+                    </div>
+                </div>
+                <div class="banner-card">
+                    <img src="https://picsum.photos/seed/ktvdining/400/400.jpg" alt="麦乐迪特色美食">
+                    <div class="banner-content">
+                        <span class="banner-tag">美食推荐</span>
+                        <h2 class="banner-title">超值自助餐，唱累了来点美味</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venues Section -->
+        <section id="venues" class="container main-content venue-section">
+            <h2 class="section-title">热门门店</h2>
+            <div class="venue-grid">
+                <!-- Venue 1 -->
+                <article class="venue-card">
+                    <div class="venue-img">
+                        <img src="https://picsum.photos/seed/venue1/400/300.jpg" alt="麦乐迪市中心旗舰店">
+                    </div>
+                    <div class="venue-info">
+                        <div class="venue-name">
+                            麦乐迪市中心旗舰店
+                            <span class="venue-status">营业中</span>
+                        </div>
+                        <div class="venue-addr">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            市中心商业广场3层
+                        </div>
+                        <div class="venue-price">
+                            299元 <span>/ 小时</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Venue 2 -->
+                <article class="venue-card">
+                    <div class="venue-img">
+                        <img src="https://picsum.photos/seed/venue2/400/300.jpg" alt="麦乐迪科技园店">
+                    </div>
+                    <div class="venue-info">
+                        <div class="venue-name">
+                            麦乐迪科技园店
+                            <span class="venue-status">营业中</span>
+                        </div>
+                        <div class="venue-addr">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            高新区科技园C座5层
+                        </div>
+                        <div class="venue-price">
+                            249元 <span>/ 小时</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Venue 3 -->
+                <article class="venue-card">
+                    <div class="venue-img">
+                        <img src="https://picsum.photos/seed/venue3/400/300.jpg" alt="麦乐迪火车站店">
+                    </div>
+                    <div class="venue-info">
+                        <div class="venue-name">
+                            麦乐迪火车站店
+                            <span class="venue-status">即将开业</span>
+                        </div>
+                        <div class="venue-addr">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            火车站北广场地下商业街
+                        </div>
+                        <div class="venue-price">
+                            329元 <span>/ 小时</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">会员权益</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
+                        <h4>尊贵身份标识</h4>
+                        <p>专属会员卡，入场享VIP通道</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h4>积分兑换</h4>
+                        <p>消费积分可抵现兑换饮品</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h4>储值优惠</h4>
+                        <p>充500送200，充1000送500</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <h4>专属客服</h4>
+                        <p>7x24小时电话预订服务</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="contact" class="container main-content faq-section">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <span class="faq-question">订房需要提前多久？</span>
+                    <p class="faq-answer">周末及节假日建议提前1-2小时预订，以确保能预订到心仪的包厢。平日可现场排队或提前半小时预订。</p>
+                </div>
+                <div class="faq-item">
+                    <span class="faq-question">包厢内可以自带酒水吗？</span>
+                    <p class="faq-answer">麦乐迪KTV提供多种免费饮料和小食，同时也支持顾客自带酒水，需缴纳少量服务费。</p>
+                </div>
+                <div class="faq-item">
+                    <span class="faq-question">如何取消已预订的订单？</span>
+                    <p class="faq-answer">如需取消订单，请至少提前30分钟联系门店客服或通过官方公众号进行操作，以免产生扣费。</p>
+                </div>
+                <div class="faq-item">
+                    <span class="faq-question">会员积分怎么查询和使用？</span>
+                    <p class="faq-answer">您可以通过我们的官方小程序“麦乐迪生活”随时查询积分余额，在结账时直接抵扣现金。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>麦乐迪KTV</h2>
+                    <p>致力于为每一位顾客提供最优质的视听享受和聚会体验。全国连锁，服务升级，快乐升级。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速导航</h3>
+                    <ul>
+                        <li><a href="#">订房中心</a></li>
+                        <li><a href="#">门店列表</a></li>
+                        <li><a href="#">最新团购</a></li>
+                        <li><a href="#">会员登录</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>服务支持</h3>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系方式</h3>
+                    <ul>
+                        <li>客服热线：400-888-9999</li>
+                        <li>商务合作：bd@mailedi.com</li>
+                        <li>工作时间：09:00 - 02:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 麦乐迪娱乐管理有限公司 版权所有 | 本网站为演示设计
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
