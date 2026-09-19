@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>舞吧-专业舞蹈教学与社区交流平台</title>
+    <meta name="description" content="舞吧为您提供从零基础到高阶的专业舞蹈教学视频，涵盖拉丁、街舞、爵士、芭蕾等热门舞种。加入我们的舞蹈社区，分享舞步心得，结交舞伴，提升舞蹈技巧。">
+    <meta name="keywords" content="舞吧,舞蹈教学,街舞,爵士舞,拉丁舞,舞蹈社区,舞蹈视频,在线学舞">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --accent-color: #ffa502;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-light: #747d8c;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #ff6b81;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .search-bar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .search-bar {
+                display: block;
+                position: relative;
+            }
+            .search-bar input {
+                padding: 8px 16px;
+                border-radius: 20px;
+                border: 1px solid #dfe4ea;
+                width: 200px;
+                outline: none;
+                transition: width 0.3s;
+            }
+            .search-bar input:focus {
+                width: 250px;
+                border-color: var(--primary-color);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.9), rgba(255, 165, 2, 0.8)), url('https://picsum.photos/seed/dancehero/1600/900') center/cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+        }
+
+        /* Categories */
+        .categories {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: var(--spacing-lg);
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cat-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-md);
+            background-color: #ffeaa7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .category-card h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-main);
+        }
+
+        .category-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Popular Courses */
+        .popular-courses {
+            padding: var(--spacing-lg) 0;
+            background-color: white;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .course-card {
+            background: var(--bg-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .course-img {
+            height: 180px;
+            width: 100%;
+            position: relative;
+        }
+
+        .course-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .course-info {
+            padding: var(--spacing-md);
+        }
+
+        .course-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-md);
+        }
+
+        .instructor {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .instructor img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        /* Community Section */
+        .community {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .community-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .community-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .topic-card {
+            background: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+        }
+
+        .topic-content {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .topic-tags span {
+            background-color: #f1f2f6;
+            color: var(--text-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .ranking-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f2f6;
+            font-size: 0.95rem;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-weight: bold;
+            color: var(--accent-color);
+            width: 20px;
+        }
+
+        /* Features */
+        .features {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .feature-item svg {
+            width: 40px;
+            height: 40px;
+            margin-bottom: var(--spacing-md);
+            fill: var(--primary-color);
+        }
+
+        .feature-item h4 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #dfe4ea;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e272e;
+            color: #a4b0be;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2f3542;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                舞吧
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#courses">课程</a>
+                <a href="#community">社区</a>
+                <a href="#dancers">舞者</a>
+                <a href="#about">关于我们</a>
+            </nav>
+            <div class="user-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索舞种、老师...">
+                </div>
+                <a href="#" class="btn btn-outline" style="padding: 6px 16px; font-size: 0.9rem;">登录</a>
+                <a href="#" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.9rem;">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>释放身体，舞动人生</h1>
+                <p>无论你是零基础新手还是资深舞者，舞吧都为你提供专业的舞蹈课程、活跃的舞友社区和丰富的线下活动。</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary">开始学舞</a>
+                    <a href="#community" class="btn btn-outline" style="color: white; border-color: white;">加入社区</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">热门舞种</h2>
+                <div class="category-grid">
+                    <article class="category-card">
+                        <div class="cat-icon">💃</div>
+                        <h3>爵士舞</h3>
+                        <p>律动感强，适合塑形，释放压力</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="cat-icon">🔥</div>
+                        <h3>街舞</h3>
+                        <p>个性张扬，节奏多变，酷炫十足</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="cat-icon">🥂</div>
+                        <h3>拉丁舞</h3>
+                        <p>热情奔放，提升气质与自信</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="cat-icon">👯</div>
+                        <h3>社交舞</h3>
+                        <p>优雅绅士，掌握浪漫约会技巧</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="cat-icon">💃</div>
+                        <h3>芭蕾</h3>
+                        <p>优雅体态，核心力量训练</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="cat-icon">🥋</div>
+                        <h3>K-Pop</h3>
+                        <p>流行趋势，跟跳练习，青春活力</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Courses Section -->
+        <section id="courses" class="popular-courses">
+            <div class="container">
+                <h2 class="section-title">精选课程</h2>
+                <div class="course-grid">
+                    <!-- Course 1 -->
+                    <article class="course-card">
+                        <div class="course-img">
+                            <img src="https://picsum.photos/seed/jazzdance/400/250" alt="零基础爵士舞入门">
+                            <span class="course-tag">热门</span>
+                        </div>
+                        <div class="course-info">
+                            <h3 class="course-title">零基础爵士舞入门：从踩点开始</h3>
+                            <div class="course-meta">
+                                <span>⏱ 45分钟</span>
+                                <span>👥 12,304人学过</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="instructor">
+                                    <img src="https://picsum.photos/seed/avatar1/50/50" alt="教练头像">
+                                    <span>李娜老师</span>
+                                </div>
+                                <span class="btn btn-outline" style="padding: 4px 12px; font-size: 0.8rem;">查看详情</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Course 2 -->
+                    <article class="course-card">
+                        <div class="course-img">
+                            <img src="https://picsum.photos/seed/hiphop/400/250" alt="嘻哈律动技巧">
+                            <span class="course-tag">进阶</span>
+                        </div>
+                        <div class="course-info">
+                            <h3 class="course-title">嘻哈律动与基础Step教学</h3>
+                            <div class="course-meta">
+                                <span>⏱ 60分钟</span>
+                                <span>👥 8,562人学过</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="instructor">
+                                    <img src="https://picsum.photos/seed/avatar2/50/50" alt="教练头像">
+                                    <span>阿K</span>
+                                </div>
+                                <span class="btn btn-outline" style="padding: 4px 12px; font-size: 0.8rem;">查看详情</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Course 3 -->
+                    <article class="course-card">
+                        <div class="course-img">
+                            <img src="https://picsum.photos/seed/salsa/400/250" alt="拉丁舞伦巴">
+                            <span class="course-tag">热门</span>
+                        </div>
+                        <div class="course-info">
+                            <h3 class="course-title">拉丁舞伦巴：胯部律动详解</h3>
+                            <div class="course-meta">
+                                <span>⏱ 50分钟</span>
+                                <span>👥 6,921人学过</span>
+                            </div>
+                            <div class="course-footer">
+                                <div class="instructor">
+                                    <img src="https://picsum.photos/seed/avatar3/50/50" alt="教练头像">
+                                    <span>王大卫</span>
+                                </div>
+                                <span class="btn btn-outline" style="padding: 4px 12px; font-size: 0.8rem;">查看详情</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-lg);">
+                    <a href="#" class="btn btn-primary">浏览全部课程</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <h4>名师在线教学</h4>
+                        <p>来自专业舞团的资深导师，高清视频讲解</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <h4>舞友社区互动</h4>
+                        <p>分享舞步心得，寻找同城舞伴，组队比赛</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                        <h4>灵活学习计划</h4>
+                        <p>随时随地练习，支持断点续播，定制学习路径</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <h4>专业指导反馈</h4>
+                        <p>作业上传，专家点评，快速纠正舞姿</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="community">
+            <div class="container">
+                <h2 class="section-title">舞者社区</h2>
+                <div class="community-layout">
+                    <div class="topic-list">
+                        <article class="topic-card">
+                            <div class="topic-header">
+                                <span>发布于 2小时前</span>
+                                <span>回复 23</span>
+                            </div>
+                            <h3 class="topic-title">请教大家，爵士舞中Isolation怎么练才不僵硬？</h3>
+                            <p class="topic-content">最近在学基础律动，感觉肩膀和胯部总是分不开，有没有什么练习技巧或者视频推荐？求大神指点！</p>
+                            <div class="topic-tags">
+                                <span>#爵士舞</span>
+                                <span>#基本功</span>
+                                <span>#求助</span>
+                            </div>
+                        </article>
+                        <article class="topic-card">
+                            <div class="topic-header">
+                                <span>发布于 5小时前</span>
+                                <span>回复 56</span>
+                            </div>
+                            <h3 class="topic-title">【打卡】打卡第30天，我的舞蹈成长记录</h3>
+                            <p class="topic-content">从只会乱动到现在能完整跳完一段Routine，感谢舞吧的老师和同学们。今天分享的是《Can't Stop》的分解教学。</p>
+                            <div class="topic-tags">
+                                <span>#打卡</span>
+                                <span>#成长记录</span>
+                                <span>#分享</span>
+                            </div>
+                        </article>
+                        <article class="topic-card">
+                            <div class="topic-header">
+                                <span>发布于 昨天</span>
+                                <span>回复 12</span>
+                            </div>
+                            <h3 class="topic-title">周末线下活动报名：城市中心广场街舞快闪</h3>
+                            <p class="topic-content">欢迎大家报名参加本周六的线下聚会，现场有资深老师教学，还有舞友联谊环节，地点在市中心广场。</p>
+                            <div class="topic-tags">
+                                <span>#线下活动</span>
+                                <span>#街舞</span>
+                                <span>#聚会</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <aside>
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">热门话题榜</h4>
+                            <ul class="ranking-list">
+                                <li>
+                                    <span class="rank-num">1</span>
+                                    <span>#2024舞蹈大赛报名中</span>
+                                    <span>1.2w</span>
+                                </li>
+                                <li>
+                                    <span class="rank-num">2</span>
+                                    <span>#零基础学舞攻略</span>
+                                    <span>9.8k</span>
+                                </li>
+                                <li>
+                                    <span class="rank-num">3</span>
+                                    <span>#我的舞蹈穿搭</span>
+                                    <span>7.5k</span>
+                                </li>
+                                <li>
+                                    <span class="rank-num">4</span>
+                                    <span>#舞蹈减肥秘籍</span>
+                                    <span>6.2k</span>
+                                </li>
+                                <li>
+                                    <span class="rank-num">5</span>
+                                    <span>#舞伴寻找中</span>
+                                    <span>5.1k</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">新手指南</h4>
+                            <ul class="ranking-list">
+                                <li><a href="#">如何选择适合自己的舞种？</a></li>
+                                <li><a href="#">舞蹈装备选购指南</a></li>
+                                <li><a href="#">常见舞蹈伤病预防</a></li>
+                                <li><a href="#">舞蹈考级体系介绍</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="about">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 16px; color: white;">
+                        <span style="color: var(--primary-color);">舞吧</span>
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        舞吧致力于打造最专业的在线舞蹈学习平台，连接每一位热爱舞蹈的人，让舞蹈成为生活的一部分。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>课程分类</h4>
+                    <ul>
+                        <li><a href="#">爵士舞</a></li>
+                        <li><a href="#">街舞</a></li>
+                        <li><a href="#">拉丁舞</a></li>
+                        <li><a href="#">芭蕾舞</a></li>
+                        <li><a href="#">K-Pop</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持与帮助</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">获取最新舞蹈资讯与课程优惠</p>
+                    <div style="display: flex; gap: 10px;">
+                        <div style="width: 32px; height: 32px; background: #3e4c59; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #3e4c59; border-radius: 4px;"></div>
+                        <div style="width: 32px; height: 32px; background: #3e4c59; border-radius: 4px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 舞吧 版权所有 | 本站所有课程资源仅供学习交流</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
