@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冲浪纸飞机图纸 - 高性能折纸教程与飞行参数详解</title>
+    <meta name="description" content="本站提供专业的冲浪纸飞机图纸下载与折叠教程。详细解析冲浪纸飞机的空气动力学原理、飞行参数调整方法及不同材质的适用性，助您折出高性能滑翔机。">
+    <meta name="keywords" content="冲浪纸飞机图纸, 纸飞机折法, 高性能纸飞机, 滑翔机折纸, 纸飞机制作">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* 内容区块 */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* 教程步骤 */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .step-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 图纸展示区 */
+        .blueprints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .blueprint-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .blueprint-img {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blueprint-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blueprint-info {
+            padding: 20px;
+        }
+
+        .blueprint-tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .blueprint-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .blueprint-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #f1f1f1;
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 参数与建议 */
+        .tips-section {
+            background-color: white;
+            padding: 60px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .tips-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .tip-list h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .tip-item {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .tip-number {
+            background-color: var(--accent-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .tip-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .tip-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .material-guide {
+            background-color: #f0f4f8;
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+
+        .material-guide h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .material-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .material-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .material-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .material-name {
+            font-weight: 600;
+            width: 40%;
+        }
+
+        .material-recommend {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background-color: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tips-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>✈</span> 纸飞机工坊
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#tutorial" class="active">折叠教程</a></li>
+                    <li><a href="#blueprints">图纸下载</a></li>
+                    <li><a href="#tips">飞行参数</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <div class="container">
+                <h1>掌握冲浪纸飞机图纸</h1>
+                <p>从简单的折叠到空气动力学的完美结合。本站提供高清冲浪纸飞机图纸，助您制作出滑翔距离最远、飞行姿态最稳定的纸飞机。</p>
+                <a href="#blueprints" class="cta-button">查看图纸与教程</a>
+            </div>
+        </section>
+
+        <!-- 折叠步骤 -->
+        <section id="tutorial" class="content-section container">
+            <div class="section-title">
+                <h2>标准折叠流程</h2>
+                <p>遵循正确的步骤是获得高性能飞行的关键</p>
+            </div>
+            
+            <div class="steps-grid">
+                <article class="step-card">
+                    <span class="step-icon">1️⃣</span>
+                    <h3>基础折痕</h3>
+                    <p>取一张A4或长条形纸张，对折形成中线，然后压出清晰的折痕，确保边缘对齐。</p>
+                </article>
+                <article class="step-card">
+                    <span class="step-icon">2️⃣</span>
+                    <h3>主体成型</h3>
+                    <p>将纸张两侧向中线折叠，形成三角翼结构。注意保持折痕的锐利度，这直接影响升力。</p>
+                </article>
+                <article class="step-card">
+                    <span class="step-icon">3️⃣</span>
+                    <h3>冲浪调整</h3>
+                    <p>根据图纸要求，对机翼后缘进行上翘或下压处理。这是“冲浪”纸飞机名称的由来。</p>
+                </article>
+                <article class="step-card">
+                    <span class="step-icon">4️⃣</span>
+                    <h3>重心定位</h3>
+                    <p>折叠机头部分，确保重心位于机翼前缘后方约30%-40%的位置，以保证飞行稳定。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 图纸下载 -->
+        <section id="blueprints" class="content-section container" style="background-color: #f4f6f8; border-radius: var(--border-radius); padding: 40px;">
+            <div class="section-title">
+                <h2>精选图纸资源</h2>
+                <p>点击下载高清PDF图纸，支持A4打印</p>
+            </div>
+
+            <div class="blueprints-grid">
+                <!-- 图纸卡片 1 -->
+                <div class="blueprint-card">
+                    <div class="blueprint-img">
+                        <img src="https://picsum.photos/seed/plane1/400/300" alt="经典冲浪纸飞机图纸">
+                    </div>
+                    <div class="blueprint-info">
+                        <span class="blueprint-tag">经典款</span>
+                        <h3 class="blueprint-title">经典冲浪型</h3>
+                        <p class="blueprint-desc">适合初学者，滑翔距离长，抗风性能好，飞行姿态平稳。</p>
+                        <a href="#" class="download-btn">下载图纸 (PDF)</a>
+                    </div>
+                </div>
+
+                <!-- 图纸卡片 2 -->
+                <div class="blueprint-card">
+                    <div class="blueprint-img">
+                        <img src="https://picsum.photos/seed/plane2/400/300" alt="高速折纸飞机图纸">
+                    </div>
+                    <div class="blueprint-info">
+                        <span class="blueprint-tag">进阶款</span>
+                        <h3 class="blueprint-title">极速冲刺型</h3>
+                        <p class="blueprint-desc">机翼较小，重心靠前，飞行速度快，适合在无风或微风环境下测试。</p>
+                        <a href="#" class="download-btn">下载图纸 (PDF)</a>
+                    </div>
+                </div>
+
+                <!-- 图纸卡片 3 -->
+                <div class="blueprint-card">
+                    <div class="blueprint-img">
+                        <img src="https://picsum.photos/seed/plane3/400/300" alt="长距离滑翔机图纸">
+                    </div>
+                    <div class="blueprint-info">
+                        <span class="blueprint-tag">竞赛款</span>
+                        <h3 class="blueprint-title">超长续航型</h3>
+                        <p class="blueprint-desc">大机翼设计，利用滑翔原理，单次投掷可滑翔数十米。</p>
+                        <a href="#" class="download-btn">下载图纸 (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 参数与材料 -->
+        <section id="tips" class="tips-section">
+            <div class="container tips-container">
+                <div class="tip-list">
+                    <h3>飞行参数调整指南</h3>
+                    
+                    <div class="tip-item">
+                        <div class="tip-number">1</div>
+                        <div class="tip-content">
+                            <h4>机翼上反角</h4>
+                            <p>轻微增加机翼上反角可以提高侧向稳定性，防止纸飞机在飞行中侧翻。</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">2</div>
+                        <div class="tip-content">
+                            <h4>后缘上翘</h4>
+                            <p>“冲浪”纸飞机的核心在于后缘上翘。上翘角度越大，升力越大，但阻力也会增加。</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">3</div>
+                        <div class="tip-content">
+                            <h4>重心微调</h4>
+                            <p>如果飞机机头下沉，说明重心太靠后；如果机头抬得过高，说明重心太靠前。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="material-guide">
+                    <h3>纸张材质推荐</h3>
+                    <table class="material-table">
+                        <tr>
+                            <td class="material-name">普通打印纸 (A4)</td>
+                            <td class="material-recommend">⭐⭐⭐ 推荐</td>
+                        </tr>
+                        <tr>
+                            <td class="material-name">轻型手风琴纸</td>
+                            <td class="material-recommend">⭐⭐⭐⭐ 最佳</td>
+                        </tr>
+                        <tr>
+                            <td class="material-name">硫酸纸/描图纸</td>
+                            <td class="material-recommend">⭐⭐⭐⭐⭐ 最轻</td>
+                        </tr>
+                        <tr>
+                            <td class="material-name">报纸/杂志纸</td>
+                            <td class="material-recommend">⭐⭐ 易破损</td>
+                        </tr>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">提示：太厚的卡纸会增加重量，导致升力不足；太薄的纸容易在投掷时变形。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-section container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            
+            <details>
+                <summary>冲浪纸飞机和普通纸飞机有什么区别？</summary>
+                <div class="faq-answer">
+                    <p>冲浪纸飞机通常指机翼后缘设计有特定弧度（上翘或下压）的纸飞机，这种设计利用了伯努利原理，能产生更大的升力，从而实现更长的滑翔距离和更稳定的飞行姿态。普通纸飞机通常指传统的平翼设计。</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>为什么我的纸飞机总是飞不远？</summary>
+                <div class="faq-answer">
+                    <p>飞行距离短通常由以下原因造成：1. 折痕不够清晰或未压平；2. 重心位置不正确（通常机头过重或过轻）；3. 投掷角度和力度不合适（应保持水平或略微向上）；4. 纸张太软或受潮。请检查折痕并使用硬挺的纸张。</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>如何处理机头下沉的问题？</summary>
+                <div class="faq-answer">
+                    <p>如果飞机机头总是下沉，说明重心太靠后。解决方法是在机头部分剪去一小块纸（减轻机头重量），或者将机头折痕向后推一点，使重心前移。</p>
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 纸飞机工坊. 专注高性能折纸教学与图纸分享。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
