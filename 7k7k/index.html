@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7k7k游戏大全小游戏 - 极速好玩的手游、网页游戏与休闲小游戏合集</title>
+    <meta name="description" content="7k7k游戏大全小游戏提供海量免费在线小游戏、网页游戏、手游攻略及下载服务。包含射击、益智、动作、休闲等多种类型，无需下载，即点即玩，是玩家寻找好玩的7k7k小游戏的首选平台。">
+    <meta name="keywords" content="7k7k游戏大全小游戏,7k7k小游戏,网页游戏,在线小游戏,7k7k游戏,免费游戏,手机游戏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --accent-color: #ffa502;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-light: #747d8c;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: white;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2f3542 0%, #57606f 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 120px;
+            background-color: #dfe4ea;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .game-card:hover .play-icon {
+            opacity: 1;
+        }
+
+        .play-icon::after {
+            content: '';
+            border-style: solid;
+            border-width: 8px 0 8px 14px;
+            border-color: transparent transparent transparent white;
+            margin-left: 2px;
+        }
+
+        .card-info {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .game-tags {
+            margin-top: auto;
+            display: flex;
+            gap: 5px;
+        }
+
+        .mini-tag {
+            background: #f1f2f6;
+            color: var(--text-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cat-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .cat-item:hover {
+            background: #fff0f1;
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .featured-banner {
+            width: 100%;
+            height: 300px;
+            background-color: #dfe4ea;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .featured-item {
+            display: flex;
+            gap: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .featured-item:hover {
+            background: #f1f2f6;
+        }
+
+        .featured-thumb {
+            width: 80px;
+            height: 60px;
+            background: #ced6e0;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        
+        .featured-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .featured-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #a4b0be;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin: 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.85rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>7k7k</span>游戏大全
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索7k7k小游戏、网页游戏...">
+                <button type="button" aria-label="搜索"></button>
+            </div>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">排行榜</a>
+                <a href="#">新游速递</a>
+                <a href="#">用户中心</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>海量7k7k小游戏，极速在线畅玩</h1>
+            <p>无需下载，无需安装，打开浏览器即可体验。我们收录了最热门的射击、益智、动作、休闲小游戏，满足不同玩家的娱乐需求。</p>
+            <div class="hero-tags">
+                <span class="tag">🚀 热门推荐</span>
+                <span class="tag">🔫 射击竞技</span>
+                <span class="tag">🧩 益智解谜</span>
+                <span class="tag">🏃 休闲跑酷</span>
+                <span class="tag">🏎️ 赛车竞速</span>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Category Navigation -->
+            <section>
+                <div class="categories-grid">
+                    <div class="cat-item">
+                        <span class="cat-icon">🚀</span>
+                        <div class="cat-name">动作冒险</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🧠</span>
+                        <div class="cat-name">益智解谜</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🔫</span>
+                        <div class="cat-name">射击游戏</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🏎️</span>
+                        <div class="cat-name">赛车竞速</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🏰</span>
+                        <div class="cat-name">策略模拟</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🧸</span>
+                        <div class="cat-name">儿童专区</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🎵</span>
+                        <div class="cat-name">音乐舞蹈</div>
+                    </div>
+                    <div class="cat-item">
+                        <span class="cat-icon">🧱</span>
+                        <div class="cat-name">休闲消除</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Section -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">本周热门精选</h2>
+                    <a href="#" class="view-all">查看更多 ></a>
+                </div>
+                <div class="featured-layout">
+                    <div class="featured-banner">
+                        <img src="https://picsum.photos/seed/featured1/800/400" alt="热门游戏推荐 Banner">
+                    </div>
+                    <div class="featured-list">
+                        <div class="featured-item">
+                            <div class="featured-thumb">
+                                <img src="https://picsum.photos/seed/game1/100/100" alt="游戏封面">
+                            </div>
+                            <div class="featured-info">
+                                <h4>疯狂的小球</h4>
+                                <p>经典物理闯关，挑战你的反应极限！</p>
+                            </div>
+                        </div>
+                        <div class="featured-item">
+                            <div class="featured-thumb">
+                                <img src="https://picsum.photos/seed/game2/100/100" alt="游戏封面">
+                            </div>
+                            <div class="featured-info">
+                                <h4>像素英雄</h4>
+                                <p>热血动作格斗，拯救世界就在此刻。</p>
+                            </div>
+                        </div>
+                        <div class="featured-item">
+                            <div class="featured-thumb">
+                                <img src="https://picsum.photos/seed/game3/100/100" alt="游戏封面">
+                            </div>
+                            <div class="featured-info">
+                                <h4>快乐消消乐</h4>
+                                <p>休闲益智首选，轻松解压好游戏。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Games Grid -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">最新上线</h2>
+                    <a href="#" class="view-all">查看更多 ></a>
+                </div>
+                <div class="game-grid">
+                    <!-- Game Card 1 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/act1/300/200" alt="霓虹跑酷">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">霓虹跑酷</h3>
+                            <div class="game-meta">动作 | 2D | 热门</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">手机端</span>
+                                <span class="mini-tag">推荐</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game Card 2 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/puz1/300/200" alt="智力迷宫">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">智力迷宫</h3>
+                            <div class="game-meta">益智 | 策略 | 趣味</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">免费</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game Card 3 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/sho1/300/200" alt="特工行动">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">特工行动</h3>
+                            <div class="game-meta">射击 | 冒险 | 3D</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">高难度</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game Card 4 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/arc1/300/200" alt="复古街机">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">复古街机</h3>
+                            <div class="game-meta">街机 | 经典 | 挑战</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">怀旧</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game Card 5 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/cas1/300/200" alt="幸运转盘">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">幸运转盘</h3>
+                            <div class="game-meta">休闲 | 概率 | 玩法</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">休闲</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game Card 6 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/sim1/300/200" alt="农场物语">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">农场物语</h3>
+                            <div class="game-meta">模拟 | 种植 | 治愈</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">治愈系</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Game Card 7 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/str1/300/200" alt="塔防大师">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">塔防大师</h3>
+                            <div class="game-meta">策略 | 防守 | 挑战</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">策略党</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Game Card 8 -->
+                    <article class="game-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/ball1/300/200" alt="弹球大作战">
+                            <div class="play-icon"></div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="game-title">弹球大作战</h3>
+                            <div class="game-meta">休闲 | 益智 | 趣味</div>
+                            <div class="game-tags">
+                                <span class="mini-tag">多人</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Guide Section -->
+            <section style="margin-top: 50px;">
+                <div class="section-header">
+                    <h2 class="section-title">新手指南与常见问题</h2>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <article style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary-color);">如何在7k7k玩小游戏？</h3>
+                        <p style="color: var(--text-light);">非常简单。您只需在搜索框输入游戏名称，或者点击感兴趣的分类标签。找到游戏后，点击“开始游戏”按钮即可在浏览器中直接加载运行，无需下载安装任何客户端软件。</p>
+                    </article>
+                    <article style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary-color);">支持哪些设备？</h3>
+                        <p style="color: var(--text-light);">7k7k游戏大全支持所有主流设备。无论是电脑（Windows/Mac）、平板电脑还是智能手机，只要安装了现代浏览器（如Chrome、Edge、Safari等），都可以流畅游玩我们的网页小游戏。</p>
+                    </article>
+                    <article>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary-color);">游戏是否安全？</h3>
+                        <p style="color: var(--text-light);">我们的游戏均经过人工审核与安全扫描，确保无病毒、无恶意插件，您可以放心游玩。同时，建议您在玩游戏时注意保护个人隐私，不要随意输入敏感信息。</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于7k7k游戏大全</h3>
+                <p style="font-size: 0.9rem; line-height: 1.6;">7k7k游戏大全致力于为玩家提供最纯粹、最快捷的网页游戏体验。我们汇集了全网优质的小游戏资源，让快乐触手可及。</p>
+            </div>
+            <div class="footer-col">
+                <h3>游戏分类</h3>
+                <ul>
+                    <li><a href="#">动作射击</a></li>
+                    <li><a href="#">休闲益智</a></li>
+                    <li><a href="#">赛车竞速</a></li>
+                    <li><a href="#">策略模拟</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">游戏下载</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <p style="font-size: 0.9rem;">获取最新游戏资讯与福利活动</p>
+                <div style="margin-top: 10px; display: flex; gap: 10px;">
+                    <span style="width: 30px; height: 30px; background: rgba(255,255,255,0.2); border-radius: 50%;"></span>
+                    <span style="width: 30px; height: 30px; background: rgba(255,255,255,0.2); border-radius: 50%;"></span>
+                    <span style="width: 30px; height: 30px; background: rgba(255,255,255,0.2); border-radius: 50%;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 7k7k游戏大全. All Rights Reserved. 仅供演示使用，非官方网站。</p>
+        </div>
+    </footer>
+
+</body>
+                          </html>
