@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="gleasy网盘官方首页，提供安全稳定的在线存储、文件管理与协作共享服务。支持文档预览、视频播放、团队空间及多端同步，助您轻松管理云端数据。">
+    <meta name="keywords" content="gleasy网盘,gleasy,在线网盘,云存储,文件管理,gleasy协作,gleasy网盘官网">
+    <title>gleasy网盘-安全稳定的在线存储与文件管理协作平台</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #f3f4f6;
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: #eff6ff;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--bg-body);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            background: white;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Storage & Usage Section */
+        .usage {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .usage-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .usage-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .usage-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 32px;
+        }
+
+        .usage-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .usage-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .usage-diagram {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .diagram-box {
+            border: 2px dashed var(--primary-color);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .diagram-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .diagram-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            opacity: 0.9;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--bg-body);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 24px 0;
+            color: var(--text-main);
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .features-list {
+            margin: 32px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: none;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            border-top-color: var(--border-color);
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .features-grid, .usage-grid, .pricing-grid, .stats-grid, .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: var(--shadow-md);
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-actions .btn {
+                display: none;
+            }
+
+            .features-grid, .pricing-grid, .stats-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 7V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V7" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12H15" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9V15" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 7H22" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Gleasy</span>
+            </a>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#features">功能特性</a></li>
+                    <li><a href="#usage">使用场景</a></li>
+                    <li><a href="#pricing">价格方案</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费注册</a>
+            </div>
+            <div class="mobile-menu-btn" id="menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>gleasy网盘：<br><span>安全、高效、跨平台</span>的文件管理专家</h1>
+                    <p>告别本地存储的烦恼，gleasy网盘为您提供无限扩容的云端空间。支持在线文档预览、视频播放、团队协作及多端实时同步，让数据触手可及。</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">立即开始使用</a>
+                        <a href="#" class="btn btn-outline">查看演示</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for dashboard visual -->
+                    <img src="https://picsum.photos/seed/gleasydash/600/400" alt="gleasy网盘工作台界面" width="600" height="400">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">核心功能，满足多元需求</h2>
+            <p class="section-subtitle">不仅仅是存储，gleasy网盘更是一套完整的在线办公与协作解决方案。</p>
+            
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>超大云存储空间</h3>
+                    <p>提供从基础到专业级的存储方案，轻松容纳照片、视频、文档等海量文件，支持文件自动备份与版本恢复。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>在线文档协作</h3>
+                    <p>内置强大的在线文档编辑器，支持多人实时在线编辑、评论与审批，让团队协作无缝衔接。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>安全共享与权限管理</h3>
+                    <p>灵活设置分享链接的有效期与访问权限，支持密码保护与二次验证，确保您的隐私数据安全无忧。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>全平台多端同步</h3>
+                    <p>无论是电脑、平板还是手机，gleasy网盘都能保持数据实时同步，随时随地访问您的工作与生活资料。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>多媒体在线预览</h3>
+                    <p>无需下载，直接在线预览多种格式文档、PDF、图片及高清视频，提升办公效率，节省流量消耗。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>团队空间与权限分级</h3>
+                    <p>为企业和团队提供专属空间，支持创建子账号与精细化权限管理，打造专属的云端工作台。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Scenario Section -->
+    <section id="usage" class="usage">
+        <div class="container">
+            <div class="usage-grid">
+                <div class="usage-list">
+                    <h2 class="section-title" style="text-align: left;">场景化解决方案</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">gleasy网盘专为不同场景设计，无论是个人备份还是企业协作，都能找到合适的工具。</p>
+                    
+                    <div class="usage-item">
+                        <div class="usage-number">01</div>
+                        <div class="usage-content">
+                            <h4>个人数据备份</h4>
+                            <p>定期自动备份手机照片与重要文档，防止设备丢失导致数据损坏。</p>
+                        </div>
+                    </div>
+                    <div class="usage-item">
+                        <div class="usage-number">02</div>
+                        <div class="usage-content">
+                            <h4>团队文件共享</h4>
+                            <p>项目组成员可实时共享设计稿、需求文档，减少邮件传输的繁琐。</p>
+                        </div>
+                    </div>
+                    <div class="usage-item">
+                        <div class="usage-number">03</div>
+                        <div class="usage-content">
+                            <h4>远程办公协作</h4>
+                            <p>通过在线文档与共享空间，实现异地团队的高效协同办公。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="usage-diagram">
+                    <div class="diagram-box">
+                        <div class="diagram-title">云端工作流</div>
+                        <div class="diagram-desc">文件上传 -> 在线编辑 -> 安全分享 -> 多端同步</div>
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+                        <p>所有操作均在浏览器中完成，无需安装任何客户端软件。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000万+</h3>
+                    <p>注册用户</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50PB+</h3>
+                    <p>数据存储量</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>服务可用性</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>技术支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">灵活的价格方案</h2>
+            <p class="section-subtitle">根据您的需求选择合适的存储空间，新用户注册即享免费试用。</p>
+            
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <h3>基础版</h3>
+                    <div class="price">¥0<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>5GB 存储空间</li>
+                        <li>基础文件上传下载</li>
+                        <li>网页版在线预览</li>
+                        <li>基础分享功能</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline" style="width: 100%">免费注册</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card popular">
+                    <div class="badge">最受欢迎</div>
+                    <h3>专业版</h3>
+                    <div class="price">¥19<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>200GB 存储空间</li>
+                        <li>高清视频在线播放</li>
+                        <li>高级文档编辑器</li>
+                        <li>团队空间权限管理</li>
+                        <li>优先技术支持</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%">立即升级</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <h3>企业版</h3>
+                    <div class="price">定制<span>/年</span></div>
+                    <ul class="features-list">
+                        <li>无限存储空间</li>
+                        <li>专属客户经理</li>
+                        <li>私有化部署支持</li>
+                        <li>SSO单点登录</li>
+                        <li>高级数据安全审计</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline" style="width: 100%">联系销售</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题解答</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">gleasy网盘支持哪些文件格式？</div>
+                    <div class="faq-answer">gleasy网盘支持主流的办公文档（Word, Excel, PPT）、PDF文档、图片（JPG, PNG, GIF）、音视频（MP4, MP3）以及压缩包等多种格式。具体支持的格式列表可参考官方帮助文档。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">我的数据安全吗？</div>
+                    <div class="faq-answer">非常安全。我们采用银行级的数据加密技术，支持二次验证和密码保护分享。同时，我们提供文件版本回滚功能，以防误删或修改造成数据丢失。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何将电脑上的文件上传到gleasy网盘？</div>
+                    <div class="faq-answer">您可以直接在网页端拖拽文件上传，也可以下载电脑客户端进行高速同步。支持断点续传，即使网络中断也能在恢复后继续上传。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如果我不续费会员会怎样？</div>
+                    <div class="faq-answer">您的文件不会立即删除。在会员到期后的30天内，您仍可正常访问和下载文件。30天后，未购买的存储空间将被锁定，但您仍可保留免费账户的基本功能。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Gleasy</h2>
+                    <p>致力于为用户提供最便捷、最安全的在线存储与协作服务，让数据管理变得简单高效。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">gleasy网盘</a></li>
+                        <li><a href="#">在线文档</a></li>
+                        <li><a href="#">日历协作</a></li>
+                        <li><a href="#">邮箱服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用教程</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">官方博客</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Gleasy Technology Co., Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navList = document.getElementById('nav-list');
+
+        menuBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    navList.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+              </html>
