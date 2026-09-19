@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武里南联队 - 泰国顶级足球俱乐部与泰超联赛官方资讯平台</title>
+    <meta name="description" content="武里南联队官方网站。提供泰超联赛最新赛程、球队阵容、球员数据、历史战绩及亚冠联赛相关资讯。了解这支泰国足球劲旅的战术风格与核心球员信息。">
+    <meta name="keywords" content="武里南联队, 泰国武里南联, 泰超联赛, 武里南联新闻, 武里南联阵容, 泰国足球, Chonburi FC">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #004d40;
+            --secondary-color: #e0f2f1;
+            --accent-color: #ff6f00;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f9f9;
+            --bg-white: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-unit);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: normal;
+            border-bottom: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #00332a;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-main {
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 77, 64, 0.7), rgba(0, 77, 64, 0.7)), url('https://picsum.photos/seed/stadium/1600/900') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .news-card-body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .news-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .full-width-card {
+            grid-column: span 2;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .standings-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .standings-list li:last-child {
+            border-bottom: none;
+        }
+
+        .standings-list .team {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .standings-list .team-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .standings-list .team-name {
+            font-weight: 600;
+        }
+
+        .standings-list .team-points {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .match-preview {
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .match-header {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .match-vs {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Squad Section */
+        .squad-section {
+            margin-bottom: 3rem;
+        }
+
+        .squad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .player-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .player-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-bottom: 0.8rem;
+        }
+
+        .player-name {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .player-pos {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background-color: var(--secondary-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #cfd8dc;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #37474f;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .full-width-card {
+                grid-column: span 1;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .top-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎访问武里南联队球迷之家</span>
+            <span>关注泰超联赛最新动态</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav-main">
+                <a href="#" class="logo">
+                    🦁 <span>武里南联</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#news">最新资讯</a></li>
+                    <li><a href="#squad">球队阵容</a></li>
+                    <li><a href="#standings">联赛积分</a></li>
+                    <li><a href="#history">辉煌历史</a></li>
+                    <li><a href="#ticket">购票通道</a></li>
+                </ul>
+                <a href="#ticket" class="btn">购票观赛</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>泰国足球的绝对王者</h1>
+                <p>武里南联队，一支拥有辉煌战绩、主场气势如虹的泰超豪门。从本土霸主到亚冠常客，我们见证每一场胜利。</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#news" class="btn">查看赛程</a>
+                    <a href="#squad" class="btn btn-outline" style="border-color: white; color: white;">了解阵容</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- News Section -->
+        <section id="news" class="section-title">
+            <h2>最新赛事资讯</h2>
+            <span>News & Updates</span>
+        </section>
+
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div class="news-grid">
+                <article class="news-card full-width-card">
+                    <img src="https://picsum.photos/seed/soccer_stadium/800/400" alt="武里南联队主场">
+                    <div class="news-card-body">
+                        <span class="news-date">2023年10月24日</span>
+                        <h3>武里南联主场迎战劲敌，誓保三分</h3>
+                        <p>在即将到来的泰超联赛关键战中，武里南联队坐镇主场迎战老对手。主教练在赛前新闻发布会上表示，球队已经做好了充分的准备，球迷的支持将是取胜的关键因素。本场比赛不仅是积分榜的争夺，更是战术体系的检验。</p>
+                        <a href="#" style="margin-top: 1rem; color: var(--primary-color); font-weight: 500; font-size: 0.9rem;">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/football_player/400/250" alt="球员庆祝进球">
+                    <div class="news-card-body">
+                        <span class="news-date">2023年10月22日</span>
+                        <h3>核心前锋状态火热，连续三场破门</h3>
+                        <p>近期状态正佳的前锋在本场比赛中梅开二度，帮助球队锁定胜局。他的出色表现也引起了多家亚洲豪门的关注。这名射手表示，感谢教练的信任和队友的支持，将继续努力为球队争取更多进球。</p>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/training/400/250" alt="球队训练">
+                    <div class="news-card-body">
+                        <span class="news-date">2023年10月20日</span>
+                        <h3>备战亚冠：训练强度显著提升</h3>
+                        <p>为了应对接下来密集的亚冠联赛赛程，球队在间歇期进行了高强度的封闭训练。体能教练表示，球员们的状态调整得非常不错，防守端的协同作战能力有了明显提升。</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside>
+                <!-- Next Match Widget -->
+                <div class="widget">
+                    <h4 class="widget-title">即将开赛</h4>
+                    <div class="match-preview">
+                        <div class="match-header">2023年11月05日 19:30</div>
+                        <div class="match-teams">
+                            <span>武里南联</span>
+                            <span class="match-vs">VS</span>
+                            <span>巴吞联</span>
+                        </div>
+                        <div style="text-align: center; margin-top: 10px;">
+                            <a href="#" class="btn" style="width: 100%; font-size: 0.8rem;">购买门票</a>
+                        </div>
+                    </div>
+                    <div class="match-preview">
+                        <div class="match-header">2023年11月18日 20:00</div>
+                        <div class="match-teams">
+                            <span>蒙通联</span>
+                            <span class="match-vs">VS</span>
+                            <span>武里南联</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standings Widget -->
+                <div class="widget" id="standings">
+                    <h4 class="widget-title">泰超联赛积分榜</h4>
+                    <ul class="standings-list">
+                        <li>
+                            <div class="team">
+                                <span class="team-num">1</span>
+                                <span class="team-name">武里南联</span>
+                            </div>
+                            <span class="team-points">24</span>
+                        </li>
+                        <li>
+                            <div class="team">
+                                <span class="team-num">2</span>
+                                <span class="team-name">曼谷联</span>
+                            </div>
+                            <span class="team-points">22</span>
+                        </li>
+                        <li>
+                            <div class="team">
+                                <span class="team-num">3</span>
+                                <span class="team-name">巴吞联</span>
+                            </div>
+                            <span class="team-points">20</span>
+                        </li>
+                        <li>
+                            <div class="team">
+                                <span class="team-num">4</span>
+                                <span class="team-name">蒙通联</span>
+                            </div>
+                            <span class="team-points">18</span>
+                        </li>
+                        <li>
+                            <div class="team">
+                                <span class="team-num">5</span>
+                                <span class="team-name">清莱联</span>
+                            </div>
+                            <span class="team-points">15</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="widget">
+                    <h4 class="widget-title">快速导航</h4>
+                    <ul style="font-size: 0.9rem; color: var(--text-light);">
+                        <li style="margin-bottom: 8px;"><a href="#">俱乐部荣誉墙</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">青训学院介绍</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">周边商店</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">球迷协会章程</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>泰超联赛冠军</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>9</h3>
+                        <p>亚冠小组赛晋级</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>60K+</h3>
+                        <p>球场最大容量</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15年</h3>
+                        <p>顶级联赛连续参赛</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Squad Section -->
+        <section id="squad" class="section-title">
+            <h2>球队阵容</h2>
+            <span>Meet The Squad</span>
+        </section>
+
+        <div class="squad-grid">
+            <div class="player-card">
+                <img src="https://picsum.photos/seed/keeper/200/200" alt="门将" class="player-img">
+                <div class="player-name">波拉特</div>
+                <div class="player-pos">门将</div>
+            </div>
+            <div class="player-card">
+                <img src="https://picsum.photos/seed/defender/200/200" alt="后卫" class="player-img">
+                <div class="player-name">苏拉查</div>
+                <div class="player-pos">中后卫</div>
+            </div>
+            <div class="player-card">
+                <img src="https://picsum.photos/seed/midfielder/200/200" alt="中场" class="player-img">
+                <div class="player-name">素帕猜</div>
+                <div class="player-pos">中场核心</div>
+            </div>
+            <div class="player-card">
+                <img src="https://picsum.photos/seed/forward/200/200" alt="前锋" class="player-img">
+                <div class="player-name">皮姆</div>
+                <div class="player-pos">前锋</div>
+            </div>
+            <div class="player-card">
+                <img src="https://picsum.photos/seed/sub/200/200" alt="替补" class="player-img">
+                <div class="player-name">拉梅拉</div>
+                <div class="player-pos">中场</div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section style="margin-top: 4rem; margin-bottom: 4rem;">
+            <div class="section-title">
+                <h2>常见问题 (FAQ)</h2>
+                <span>Fans Q&A</span>
+            </div>
+            <div class="main-grid" style="grid-template-columns: 1fr;">
+                <div class="widget" style="padding: 1.5rem;">
+                    <details style="margin-bottom: 1rem; cursor: pointer;">
+                        <summary style="font-weight: bold; color: var(--primary-color);">如何购买武里南联队的主场门票？</summary>
+                        <p style="margin-top: 0.5rem; color: var(--text-light);">您可以通过本站“购票通道”板块，或直接前往武里南联体育场（大象体育场）的售票窗口购买。建议提前在线预订以获得最佳观赛位置。</p>
+                    </details>
+                    <details style="margin-bottom: 1rem; cursor: pointer;">
+                        <summary style="font-weight: bold; color: var(--primary-color);">球队的主场在哪里？</summary>
+                        <p style="margin-top: 0.5rem; color: var(--text-light);">武里南联队的主场是位于泰国武里南府的“大象体育场”，拥有超过6万人的座席，是泰国最现代化的足球场之一。</p>
+                    </details>
+                    <details style="margin-bottom: 1rem; cursor: pointer;">
+                        <summary style="font-weight: bold; color: var(--primary-color);">球队的历史是怎样的？</summary>
+                        <p style="margin-top: 0.5rem; color: var(--text-light);">武里南联队成立于1970年，是泰国足球历史上最成功的俱乐部之一，共获得过10次泰超联赛冠军，并在2015年打入亚冠联赛八强。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>武里南联队</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">
+                        致力于推广泰国足球文化，打造世界级俱乐部形象。无论身在何处，狮子之心永远与您同在。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">球员介绍</a></li>
+                        <li><a href="#">赛程表</a></li>
+                        <li><a href="#">新闻中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区</h4>
+                    <ul>
+                        <li><a href="#">加入球迷协会</a></li>
+                        <li><a href="#">官方社交媒体</a></li>
+                        <li><a href="#">二手市场</a></li>
+                        <li><a href="#">投诉建议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>📍 武里南府，大象体育场</li>
+                        <li>📞 +66 44 123 4567</li>
+                        <li>✉️ contact@buriram-united-fan.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 武里南联球迷资讯站. All rights reserved. 此页面为非官方粉丝制作，仅供信息展示。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
